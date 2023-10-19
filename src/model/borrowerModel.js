@@ -15,6 +15,7 @@ const borrowerAgent = borrowerClient.define('borrower', {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
     },
 }, {
     timestamps: true,

@@ -10,7 +10,6 @@ const connectDB = () => {
             timezone: 'Africa/Cairo',
             logging: false
           });
-        console.log('database connected successfuly!');
         return sequelize
     } catch (error) {
         return `there was an error: ${error}`
