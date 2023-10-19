@@ -15,6 +15,67 @@ const create = async (borrowerData) => {
     }
 }
 
+const update = async (id, borrowerData) => {
+    try {
+        const borrower = await borrowerAgent.update(borrowerData, {
+            where: {
+                id: id
+            }
+        });
+        return {
+            status: 'success',
+            message: 'borrower updated successfuly!' 
+        }
+    } catch (error) {
+        return {
+            status: 'error',
+            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+        };
+    }
+}
+
+const fetchAll = async () => {
+    try {
+        const borrowers = await borrowerAgent.findAll();
+        return {
+            status: 'success',
+            data: borrowers
+        }
+    } catch (error) {
+        return {
+            status: 'error',
+            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+        };
+    }
+}
+
+const fetchByID = async (id) => {
+    try {
+        const borrower = await borrowerAgent.findOne({
+            where: {
+                id: id
+            }
+        });
+        if (borrower) {
+            return {
+                status: 'success',
+                data: borrower
+            }
+        }
+        else {
+            return {
+                status: 'failed',
+                message: `NO borrower was found matching this id: ${id}`
+            }
+        }
+    } catch (error) {
+        return {
+            status: 'error',
+            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+        };
+    }
+}
+
 const destroy = async (id) => {
     try {
         const borrower = await borrowerAgent.destroy({
@@ -22,7 +83,6 @@ const destroy = async (id) => {
                 id: id
             }
         });
-        console.log(borrower);
         if (borrower > 0) {
             return {
                 status: 'success',
@@ -45,5 +105,8 @@ const destroy = async (id) => {
 
 module.exports = {
     create: create,
-    destroy: destroy
+    destroy: destroy,
+    fetchAll: fetchAll,
+    fetchByID: fetchByID,
+    update: update
 }

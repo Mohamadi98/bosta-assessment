@@ -73,11 +73,17 @@ const updateBook = async (req, res) => {
         quantity: quantity,
         shelf_location: shelfLocation
     }
+
     Object.keys(bookData).forEach(key => {
         if (bookData[key] === undefined) {
           delete bookData[key];
         }
-      });
+    });
+    if (Object.keys(bookData).length === 0) {
+        return res.status(400).json({
+            message: 'missing required parameters in the request body'
+        });
+    }
     if (bookData['title']) {
         bookData['title'] = bookData['title'].toLowerCase();
     }
