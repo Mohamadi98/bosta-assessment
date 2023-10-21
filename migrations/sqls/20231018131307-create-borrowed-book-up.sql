@@ -4,6 +4,6 @@ CREATE TABLE borrowedBook (
     borrower_id INT REFERENCES Borrower(id),
     borrowed_on DATE NOT NULL,
     due_date DATE NOT NULL,
-    returned_on DATE,
+    status VARCHAR(100),
     overdue BOOLEAN
 );

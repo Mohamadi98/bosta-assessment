@@ -10,7 +10,7 @@ const create = async (bookData) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -31,7 +31,7 @@ const update = async (id, bookData) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -43,7 +43,6 @@ const destroy = async (id) => {
                 id: id
             }
         });
-        console.log(book);
         if (book > 0) {
             return {
                 status: 'success',
@@ -59,7 +58,7 @@ const destroy = async (id) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 } 
@@ -74,7 +73,7 @@ const fetchAll = async () => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -101,7 +100,7 @@ const fetchByID = async (id) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -118,7 +117,7 @@ const search = async (searchObject) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }

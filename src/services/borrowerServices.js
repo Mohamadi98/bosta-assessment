@@ -10,7 +10,7 @@ const create = async (borrowerData) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -29,7 +29,7 @@ const update = async (id, borrowerData) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -44,7 +44,7 @@ const fetchAll = async () => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -71,7 +71,7 @@ const fetchByID = async (id) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 }
@@ -98,7 +98,7 @@ const destroy = async (id) => {
     } catch (error) {
         return {
             status: 'error',
-            message: `this error occured: ${error['name']}, description: ${error['errors'][0]['message']}`
+            message: `this error occured: ${error}`
         };
     }
 } 
