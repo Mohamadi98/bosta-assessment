@@ -1,4 +1,4 @@
-CREATE TABLE borrowedBook (
+CREATE TABLE borrowedbook (
     id SERIAL PRIMARY KEY,
     book_id INT REFERENCES Book(id),
     borrower_id INT REFERENCES Borrower(id),

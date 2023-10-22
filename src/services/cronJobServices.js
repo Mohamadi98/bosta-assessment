@@ -21,7 +21,6 @@ const updateOverdueBooks = cronJob.schedule('0 6 * * *', async () => {
 
     let idArr = [];
     for (const row of borrowedBooks) {
-        console.log(row.dataValues['due_date']);
         const dateChecker = dateServices.checkDatePassed(row.dataValues['due_date']);
         if (dateChecker === true) {
             idArr.push(row.dataValues['id']);
