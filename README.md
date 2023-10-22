@@ -125,3 +125,6 @@ Path Parameter:
 - HTTP Method: GET
 - Path: /borrow
 - Description: Retrieve a list of all overdue books.
+
+## Acessing The API Directly
+- The API is deployed as a web service and can be accessed directly from here `https://bosta-assesment.onrender.com`
