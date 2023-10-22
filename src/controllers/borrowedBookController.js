@@ -180,7 +180,8 @@ const getBooksByBorrowerID = async (req, res) => {
 }
 
 const getAllOverdueBooks = async (req, res) => {
-    const books = await borrowBookServices.fetchBooksByBorrowerID(borrower_id);
+    console.log('we are here');
+    const books = await borrowBookServices.fetchOverdue();
     if (books.status === 'success') {
         res.status(200).json({
             books: books.data

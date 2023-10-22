@@ -90,6 +90,7 @@ const fetchOverdue = async () => {
                 required: true
             }
         });
+
         let books = [];
         for (const obj of borrowedBooks) {
             books.push(obj['book']);
